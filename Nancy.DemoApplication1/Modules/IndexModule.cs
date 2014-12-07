@@ -24,13 +24,16 @@ namespace Nancy.DemoApplication1.Modules
 
             Get["/capture"] = _ =>
             {
-
-
-              
-
-
                 var response = (Response)getMoment();
                 response.ContentType = "application/json";
+                response.Headers.Add("Access-Control-Allow-Origin", "*");
+                return response;
+            };
+            Options["/capture"] = _ =>
+            {
+                var response = (Response)"";
+                response.ContentType = "application/json";
+                response.Headers.Add("Access-Control-Allow-Origin", "*");
                 return response;
             };
 
